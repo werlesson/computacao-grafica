@@ -85,19 +85,7 @@ function posicaoRandomica(index) {
 		//posicaoX = posicaoX < 0 ? 0 : posicaoX
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY < 0 ? 0 : mosquitos[index].posicaoY
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY > altura ? mosquitos[index].posicaoX - 40 : mosquitos[index].posicaoY
-		if(	mosquitos[index].posicaoX < 400) {
-			if(vidas > 3) {
-				window.location.href = 'fim_de_jogo.html'
-			} else {
-				vidas++
-				document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
-				document.getElementById(mosquitos[index].id).style.display = 'none'
-				if(document.getElementById(mosquitos[index].id))
-					//document.getElementById(mosquitos[index].id).remove()
-				mosquitos[index].morto = true	
-			}
-			
-		}
+		
 		console.log(posicaoX, posicaoY)
 
 		//criar o elemento html
@@ -117,6 +105,21 @@ function posicaoRandomica(index) {
 		}
 		mosquitos[index].cont += 1
 		document.body.appendChild(mosquito)
+		
+		//removendo quando chega na porta
+		if(	mosquitos[index].posicaoX < 400) {
+			if(vidas > 3) {
+				window.location.href = 'fim_de_jogo.html'
+			} else {
+				vidas++
+				document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
+				document.getElementById(mosquitos[index].id).style.display = 'none'
+				if(document.getElementById(mosquitos[index].id))
+					document.getElementById(mosquitos[index].id).remove()
+				mosquitos[index].morto = true	
+			}
+			
+		}
 	}
 }
 
