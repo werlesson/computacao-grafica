@@ -91,7 +91,10 @@ function posicaoRandomica(index) {
 		//posicaoX = posicaoX < 0 ? 0 : posicaoX
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY < 0 ? 0 : mosquitos[index].posicaoY
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY > altura ? mosquitos[index].posicaoX - 40 : mosquitos[index].posicaoY
-
+		if(	mosquitos[index].posicaoX < 400) {
+			vidas++
+			document.getElementById(mosquitos[index].id).remove()
+		}
 		console.log(posicaoX, posicaoY)
 
 		//criar o elemento html
