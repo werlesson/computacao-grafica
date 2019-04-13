@@ -3,6 +3,7 @@ var largura = 1280
 var vidas = 1
 var tempo = 60
 var cont = 0;
+var pontuacao = 0
 
 var criaMosquitoTempo = 1500
 //Posição onde o mosquito vai ser inicializado pela primeira vez
@@ -111,6 +112,7 @@ function posicaoRandomica(index) {
 		mosquito.onclick = function() {
 			this.remove()
 			mosquitos[index].morto = true
+			pontuacao += 1
 		}
 		mosquitos[index].cont += 1
 		document.body.appendChild(mosquito)
