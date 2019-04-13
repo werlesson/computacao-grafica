@@ -1,5 +1,5 @@
 
-var altura = 0
+var altura =  720
 var largura = 0
 var vidas = 1
 var tempo = 15
