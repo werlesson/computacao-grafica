@@ -93,7 +93,9 @@ function posicaoRandomica(index) {
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY > altura ? mosquitos[index].posicaoX - 40 : mosquitos[index].posicaoY
 		if(	mosquitos[index].posicaoX < 400) {
 			vidas++
-			document.getElementById(mosquitos[index].id).remove()
+			if(document.getElementById(mosquitos[index].id))
+				document.getElementById(mosquitos[index].id).remove()
+			mosquitos[index].morto = true
 		}
 		console.log(posicaoX, posicaoY)
 
