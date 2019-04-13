@@ -3,7 +3,8 @@ var altura = 0
 var largura = 0
 var vidas = 1
 var tempo = 15
-
+var cont = 0;
+var posicaoX = largura-100
 var criaMosquitoTempo = 1500
 
 var nivel = window.location.search
@@ -58,14 +59,22 @@ function posicaoRandomica() {
 		} else {
 			document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
 
-			vidas++
+			//vidas++
 		}
 	}
-
-	var posicaoX = Math.floor(Math.random() * largura) - 90
+	
+	if(cont==0){
+		console.log("Primeira vez")
+		posicaoX = largura-100;
+	}
+	else {
+		console.log("Segunda vez ou mais")
+		posicaoX = posicaoX - 40
+	}
+	 
 	var posicaoY = Math.floor(Math.random() * altura) - 90
 
-	posicaoX = posicaoX < 0 ? 0 : posicaoX
+	//posicaoX = posicaoX < 0 ? 0 : posicaoX
 	posicaoY = posicaoY < 0 ? 0 : posicaoY
 
 	console.log(posicaoX, posicaoY)
@@ -73,7 +82,9 @@ function posicaoRandomica() {
 	//criar o elemento html
 	var mosquito = document.createElement('img')
 	mosquito.src = 'imagens/mosquito.png'
-	mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
+	//mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
+	mosquito.style.width = '50px'
+	mosquito.style.height = '50px'
 	mosquito.style.left = posicaoX + 'px'
 	mosquito.style.top = posicaoY + 'px'
 	mosquito.style.position = 'absolute'
@@ -81,7 +92,7 @@ function posicaoRandomica() {
 	mosquito.onclick = function() {
 		this.remove()
 	}
-
+	cont += 1
 	document.body.appendChild(mosquito)
 
 }
