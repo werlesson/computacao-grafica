@@ -83,7 +83,7 @@ function posicaoRandomica(index) {
 		}
 		else {
 			console.log("Segunda vez ou mais")
-			mosquitos[index].posicaoX = posicaoX - 40
+			mosquitos[index].posicaoX = mosquitos[index].posicaoX - 40
 		}
 		
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY + (Math.random() * 100 - 50)//Math.floor(Math.random() * altura) - 90
