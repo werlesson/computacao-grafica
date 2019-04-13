@@ -91,8 +91,9 @@ function posicaoRandomica(index) {
 			} else {
 				vidas++
 				document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
+				document.getElementById(mosquitos[index].id).style.display = 'none'
 				if(document.getElementById(mosquitos[index].id))
-					document.getElementById(mosquitos[index].id).remove()
+					//document.getElementById(mosquitos[index].id).remove()
 				mosquitos[index].morto = true	
 			}
 			
