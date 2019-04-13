@@ -4,8 +4,11 @@ var largura = 0
 var vidas = 1
 var tempo = 15
 var cont = 0;
-var posicaoX = largura-100
+
 var criaMosquitoTempo = 1500
+//Posição onde o mosquito vai ser inicializado pela primeira vez
+var posicaoX = largura-100
+var posicaoY = Math.floor(Math.random() * altura) - 90
 
 var nivel = window.location.search
 nivel = nivel.replace('?', '')
@@ -72,7 +75,7 @@ function posicaoRandomica() {
 		posicaoX = posicaoX - 40
 	}
 	 
-	var posicaoY = Math.floor(Math.random() * altura) - 90
+	posicaoY = posicaoY + (Math.random() * 100 - 50)//Math.floor(Math.random() * altura) - 90
 
 	//posicaoX = posicaoX < 0 ? 0 : posicaoX
 	posicaoY = posicaoY < 0 ? 0 : posicaoY
