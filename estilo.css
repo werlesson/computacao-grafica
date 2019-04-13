@@ -1,8 +1,20 @@
 html {
 	cursor: url(imagens/mata_mosquito.png) 30 30, auto;
+	height: 720px;
+	width: 1280px;
 }
 
 body {
+	height: 720px;
+	width: 1280px;
+}
+
+.main {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 720px;
+	width: 1280px;
 	background-image: url(imagens/bg.jpg);
 	background-repeat: no-repeat;
 }
@@ -33,10 +45,10 @@ body {
 .painel {
 	position: absolute;
 	width: 190px;
-	padding: 10px;
 	left: 0px;
-	bottom: 0px;
-	border-topo:solid 1px #fff;
+	padding-left: 10px;
+	top: 665px;
+	border-top:solid 1px #fff;
 	background-color: #fff;
 	opacity: 0.7
 }
