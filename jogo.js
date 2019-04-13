@@ -67,14 +67,7 @@ function posicaoRandomica(index) {
 			document.getElementById(mosquitos[index].id).remove()
 
 			//console.log('elemento selecionado foi: v' + vidas)
-			if(vidas > 3) {
-
-				window.location.href = 'fim_de_jogo.html'
-			} else {
-				document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
-
-				//vidas++
-			}
+			
 		}
 		
 		if(mosquitos[index].cont==0){
@@ -92,7 +85,12 @@ function posicaoRandomica(index) {
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY < 0 ? 0 : mosquitos[index].posicaoY
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY > altura ? mosquitos[index].posicaoX - 40 : mosquitos[index].posicaoY
 		if(	mosquitos[index].posicaoX < 400) {
-			vidas++
+			if(vidas > 3) {
+				window.location.href = 'fim_de_jogo.html'
+			} else {
+				vidas++
+				document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"	
+			}
 			if(document.getElementById(mosquitos[index].id))
 				document.getElementById(mosquitos[index].id).remove()
 			mosquitos[index].morto = true
