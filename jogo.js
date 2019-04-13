@@ -60,55 +60,56 @@ var cronometro = setInterval(function() {
 
 
 function posicaoRandomica(index) {
+	if(!mosquitos[index].morto){
 
+		//remover o mosquito anterior (caso exista)
+		if(document.getElementById(mosquitos[index].id)) {
+			document.getElementById(mosquitos[index].id).remove()
 
-	//remover o mosquito anterior (caso exista)
-	if(document.getElementById(mosquitos[index].id)) {
-		document.getElementById(mosquitos[index].id).remove()
+			//console.log('elemento selecionado foi: v' + vidas)
+			if(vidas > 3) {
 
-		//console.log('elemento selecionado foi: v' + vidas)
-		if(vidas > 3) {
+				window.location.href = 'fim_de_jogo.html'
+			} else {
+				document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
 
-			window.location.href = 'fim_de_jogo.html'
-		} else {
-			document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
-
-			//vidas++
+				//vidas++
+			}
 		}
-	}
-	
-	if(mosquitos[index].cont==0){
-		console.log("Primeira vez")
-		mosquitos[index].posicaoX = largura-100;
-	}
-	else {
-		console.log("Segunda vez ou mais")
-		mosquitos[index].posicaoX = posicaoX - 40
-	}
-	 
-	mosquitos[index].posicaoY = mosquitos[index].posicaoY + (Math.random() * 100 - 50)//Math.floor(Math.random() * altura) - 90
+		
+		if(mosquitos[index].cont==0){
+			console.log("Primeira vez")
+			mosquitos[index].posicaoX = largura-100;
+		}
+		else {
+			console.log("Segunda vez ou mais")
+			mosquitos[index].posicaoX = posicaoX - 40
+		}
+		
+		mosquitos[index].posicaoY = mosquitos[index].posicaoY + (Math.random() * 100 - 50)//Math.floor(Math.random() * altura) - 90
 
-	//posicaoX = posicaoX < 0 ? 0 : posicaoX
-	mosquitos[index].posicaoY = mosquitos[index].posicaoY < 0 ? 0 : mosquitos[index].posicaoY
+		//posicaoX = posicaoX < 0 ? 0 : posicaoX
+		mosquitos[index].posicaoY = mosquitos[index].posicaoY < 0 ? 0 : mosquitos[index].posicaoY
 
-	console.log(posicaoX, posicaoY)
+		console.log(posicaoX, posicaoY)
 
-	//criar o elemento html
-	var mosquito = document.createElement('img')
-	mosquito.src = 'imagens/mosquito.png'
-	//mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
-	mosquito.style.width = '50px'
-	mosquito.style.height = '50px'
-	mosquito.style.left = mosquitos[index].posicaoX + 'px'
-	mosquito.style.top = mosquitos[index].posicaoY + 'px'
-	mosquito.style.position = 'absolute'
-	mosquito.id = mosquitos[index].id
-	mosquito.onclick = function() {
-		this.remove()
+		//criar o elemento html
+		var mosquito = document.createElement('img')
+		mosquito.src = 'imagens/mosquito.png'
+		//mosquito.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
+		mosquito.style.width = '50px'
+		mosquito.style.height = '50px'
+		mosquito.style.left = mosquitos[index].posicaoX + 'px'
+		mosquito.style.top = mosquitos[index].posicaoY + 'px'
+		mosquito.style.position = 'absolute'
+		mosquito.id = mosquitos[index].id
+		mosquito.onclick = function() {
+			this.remove()
+			mosquitos[index].morto = true
+		}
+		mosquitos[index].cont += 1
+		document.body.appendChild(mosquito)
 	}
-	mosquitos[index].cont += 1
-	document.body.appendChild(mosquito)
-
 }
 
 function tamanhoAleatorio() {
