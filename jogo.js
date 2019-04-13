@@ -87,9 +87,10 @@ function posicaoRandomica(index) {
 		}
 		
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY + (Math.random() * 100 - 50)//Math.floor(Math.random() * altura) - 90
-
+		
 		//posicaoX = posicaoX < 0 ? 0 : posicaoX
 		mosquitos[index].posicaoY = mosquitos[index].posicaoY < 0 ? 0 : mosquitos[index].posicaoY
+		mosquitos[index].posicaoY = mosquitos[index].posicaoY > altura ? mosquitos[index].posicaoX - 40 : mosquitos[index].posicaoY
 
 		console.log(posicaoX, posicaoY)
 
