@@ -1,7 +1,7 @@
 var altura = 720
 var largura = 1280
 var vidas = 1
-var tempo = 15
+var tempo = 60
 var cont = 0;
 
 var criaMosquitoTempo = 1500
