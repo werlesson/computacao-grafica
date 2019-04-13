@@ -89,11 +89,12 @@ function posicaoRandomica(index) {
 				window.location.href = 'fim_de_jogo.html'
 			} else {
 				vidas++
-				document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"	
+				document.getElementById('v' + vidas).src = "imagens/coracao_vazio.png"
+				if(document.getElementById(mosquitos[index].id))
+					document.getElementById(mosquitos[index].id).remove()
+				mosquitos[index].morto = true	
 			}
-			if(document.getElementById(mosquitos[index].id))
-				document.getElementById(mosquitos[index].id).remove()
-			mosquitos[index].morto = true
+			
 		}
 		console.log(posicaoX, posicaoY)
 
