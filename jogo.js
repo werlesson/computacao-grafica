@@ -12,6 +12,24 @@ var posicaoY = Math.floor(Math.random() * altura) - 90
 var nivel = window.location.search
 nivel = nivel.replace('?', '')
 
+
+mosquitos = [
+	{
+		posicaoX: largura-100,
+		posicaoY: Math.floor(Math.random() * altura) - 90,
+		morto: false,
+		id: 'mosquito1'
+
+	},
+	{
+		posicaoX: largura-100,
+		posicaoY: Math.floor(Math.random() * altura) - 90,
+		morto: false,
+		id: 'mosquito2'
+
+	}
+]
+
 if(nivel === 'normal') {
 	//1500
 	criaMosquitoTempo = 1500
