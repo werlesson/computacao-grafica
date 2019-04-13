@@ -1,6 +1,5 @@
-
-var altura =  720
-var largura = 0
+var altura = 720
+var largura = 1280
 var vidas = 1
 var tempo = 15
 var cont = 0;
@@ -23,15 +22,6 @@ if(nivel === 'normal') {
 	//750
 	criaMosquitoTempo = 750
 }
-
-function ajustaTamanhoPalcoJogo() {
-	altura = window.innerHeight
-	largura = window.innerWidth
-
-	console.log(largura, altura)
-}
-
-ajustaTamanhoPalcoJogo()
 
 var cronometro = setInterval(function() {
 
